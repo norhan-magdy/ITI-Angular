@@ -8,7 +8,7 @@ export interface Product {
   rating: number;
   stock: number;
   tags: string[];
-  brand?: string; // Optional because some products (e.g., groceries) don't have a brand
+  brand?: string;
   sku: string;
   weight: number;
   dimensions: {

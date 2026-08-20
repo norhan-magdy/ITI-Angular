@@ -1,1 +1,48 @@
-<p>login works!</p>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div
+    class="col-10 col-xs-8 col-md-6 col-lg-5 col-xl-4 p-4 border rounded shadow bg-white"
+  >
+    <h2 class="text-center mb-4">Log in</h2>
+    <form #loginForm="ngForm" (ngSubmit)="handleSubmitForm(loginForm)">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter your email"
+          required
+          name="recipeName"
+          pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+          [(ngModel)]="formValues.userEmail"
+          #userEmail="ngModel"
+        />
+        @if(userEmail.touched && userEmail.invalid){
+        @if(userEmail.hasError('required')){
+        <div class="form-text text-danger">Required</div>
+        }@else if(userEmail.hasError('pattern')){
+
+        <div class="form-text text-danger">Invalid email format</div>
+        }}
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Enter password"
+          required
+          name="recipeName"
+          [(ngModel)]="formValues.userPassword"
+          #userPassword="ngModel"
+        />
+        @if(userPassword.touched && userPassword.invalid){
+        @if(userPassword.hasError('required')){
+        <div class="form-text text-danger">Required</div>
+        }}
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Log in</button>
+    </form>
+  </div>
+</div>
