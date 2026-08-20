@@ -21,7 +21,14 @@
     }}</span>
   </div>
   <div class="card-footer d-flex justify-content-evenly align-items-center">
-    <a href="#" class="btn btn-primary">Add to cart</a>
+    <button
+      href="#"
+      (click)="addToCart()"
+      [disabled]="product.stock === product.quantity"
+      class="btn btn-primary"
+    >
+      Add to cart
+    </button>
     <button
       class="btn btn-primary"
       (click)="handelRedirictToDetails(product.id)"

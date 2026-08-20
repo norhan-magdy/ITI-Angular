@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
   <div class="container-fluid px-5">
     <a class="navbar-brand" routerLink="/">Logo here</a>
     <button
@@ -18,7 +18,12 @@
     >
       <ul class="navbar-nav d-flex align-items-center gap-3">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/"
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="/"
+            routerLinkActive="active_link"
+            [routerLinkActiveOptions]="{ exact: true }"
             >Products</a
           >
         </li>
@@ -27,7 +32,9 @@
             class="fa-xl"
             [icon]="faCartShopping"
             routerLink="/cart"
-          ></fa-icon>
+            routerLinkActive="active_link"
+          ></fa-icon
+          >{{ cartProducts.length }}
         </li>
         <li class="nav-item">
           <button class="btn btn-dark rounded-pill" routerLink="/register">

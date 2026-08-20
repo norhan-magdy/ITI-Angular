@@ -9,6 +9,7 @@ export interface Product {
   stock: number;
   tags: string[];
   brand?: string;
+  quantity?: number;
   sku: string;
   weight: number;
   dimensions: {

@@ -1,6 +1,8 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Product } from '../types/product';
+import { CartItemsService } from '../service/cart-items.service';
 
 @Component({
   selector: 'app-product-card',
@@ -9,9 +11,16 @@ import { Router } from '@angular/router';
   styleUrl: './product-card.component.css',
 })
 export class ProductCardComponent {
-  @Input() product: any;
+  @Input() product!: Product;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private _CartItemsService: CartItemsService
+  ) {}
+
+  addToCart() {
+    this._CartItemsService.addToCart(this.product); // Input property to receive product data
+  }
 
   handelRedirictToDetails(id: number) {
     this.router.navigate(['/product-detailes', id]);
