@@ -1,0 +1,23 @@
+<div class="container my-4">
+  <div class="card bg-primary text-white p-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1 class="h4">To-Do App!</h1>
+      <button class="btn btn-link text-white">Add New To-Do</button>
+    </div>
+    <div class="mt-3">
+      <input
+        #inputValue
+        type="text"
+        class="form-control"
+        placeholder="Enter new task"
+        aria-label="Enter new task"
+      />
+      <button
+        class="btn btn-light mt-2"
+        (click)="addTask(inputValue.value); inputValue.value = ''"
+      >
+        Add
+      </button>
+    </div>
+  </div>
+</div>

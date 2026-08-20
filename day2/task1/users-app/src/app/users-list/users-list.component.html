@@ -1,0 +1,18 @@
+<div class="container my-5">
+  <app-users-search
+    (sendToParent)="recevieFromChild($event)"
+    (resetListEvent)="resetList()"
+  ></app-users-search>
+</div>
+
+<div class="container my-5">
+  <div class="row d-flex flex-wrap md-3 g-4">
+    @for (user of users; track user.id) {
+    <div class="col d-flex justify-content-center">
+      <app-users-card [userData]="user"></app-users-card>
+    </div>
+    } @empty {
+    <p>List is empty</p>
+    }
+  </div>
+</div>

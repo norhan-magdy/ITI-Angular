@@ -1,0 +1,25 @@
+<div
+  class="bg-dark text-light rounded-5 p-4 text-center"
+  style="width: 350px; height: 360px"
+>
+  <img [src]="userData.image" class="rounded-circle mb-3" alt="..." />
+  <h5
+    class="card-title mb-2 p-2"
+    [ngClass]="
+      userData.role == 'admin'
+        ? 'rounded-pill text-bg-danger'
+        : userData.role == 'moderator'
+        ? 'rounded-pill text-bg-warning'
+        : 'rounded-pill text-bg-success'
+    "
+  >
+    {{ userData.firstName }} {{ userData.lastName }}
+  </h5>
+  <div class="lh-lg">
+    <ul class="card-text list-unstyled">
+      <li>Email: {{ userData.email }}</li>
+      <li>Phone: {{ userData.phone }}</li>
+      <li>BirthDate: {{ userData.birthDate }}</li>
+    </ul>
+  </div>
+</div>

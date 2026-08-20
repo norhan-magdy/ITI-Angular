@@ -1,0 +1,33 @@
+<div class="container my-4">
+  <h2 class="h5 mb-3">To-Do List</h2>
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Task</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Display tasks -->
+      <ng-container *ngIf="tasks.length > 0; else emptyState">
+        <tr *ngFor="let task of tasks; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ task }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="deleteTask(i)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+
+      <!-- Display empty message -->
+      <ng-template #emptyState>
+        <tr>
+          <td colspan="3" class="text-center">List is empty</td>
+        </tr>
+      </ng-template>
+    </tbody>
+  </table>
+</div>

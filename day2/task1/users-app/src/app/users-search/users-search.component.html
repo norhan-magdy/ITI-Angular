@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="d-flex gap-3" role="search">
+    <input
+      #searchInput
+      class="form-control me-2"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+    />
+    <button
+      class="btn btn-outline-success"
+      (click)="handleSearch(searchInput.value)"
+      type="submit"
+    >
+      Search
+    </button>
+    <button
+      class="btn btn-outline-warning"
+      (click)="handleReset()"
+      type="submit"
+    >
+      Reset
+    </button>
+  </div>
+</div>
